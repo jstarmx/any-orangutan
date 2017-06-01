@@ -1,1 +1,1 @@
-console.log("it's working!!!");
+window.flickrcb = data => console.log(data);
