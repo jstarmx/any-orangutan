@@ -24,4 +24,7 @@ module.exports = merge(require('./webpack.config'), {
     new WebpackNotifierPlugin({ alwaysNotify: true }),
   ],
   devtool: 'eval-source-map',
+  devServer: {
+    contentBase: paths.BUILD,
+  },
 });

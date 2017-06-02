@@ -5,7 +5,7 @@
   "author": "James Starkie",
   "license": "MIT",
   "scripts": {
-    "dev": "rm -rf ./dist && webpack -d --watch --config './webpack.dev.config.js'",
+    "dev": "rm -rf ./dist && webpack-dev-server --open --watch --config './webpack.dev.config.js'",
     "prod": "rm -rf ./public && webpack -p --config './webpack.prod.config.js'",
     "lint": "eslint ./ --ext .js --ext .jsx && stylelint ./app/styles/**/*.scss",
     "test": "yarn lint && jest"
@@ -43,6 +43,7 @@
     "stylelint-order": "^0.4.4",
     "stylelint-webpack-plugin": "^0.7.0",
     "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5",
     "webpack-merge": "^4.1.0",
     "webpack-notifier": "^1.5.0"
   }
