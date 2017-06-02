@@ -1,5 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 const path = require('path');
 const paths = require('./lib/paths');
 const webpack = require('webpack');
@@ -44,7 +45,10 @@ const config = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin([{ from: paths.VIEWS, to: paths.BUILD }]),
+    new CopyWebpackPlugin([
+      { from: paths.IMAGES, to: paths.BUILD },
+      { from: paths.VIEWS, to: paths.BUILD },
+    ]),
     new ExtractTextPlugin('app.css'),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -55,6 +59,7 @@ const config = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
     }),
+    new OfflinePlugin(),
   ],
 };
 
