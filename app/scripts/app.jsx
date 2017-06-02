@@ -8,5 +8,5 @@ OfflinePluginRuntime.install();
 
 window.flickrcb = data => render(
   <Gallery items={ data.items } />,
-  document.querySelector('.app')
+  document.querySelector('.gallery-container')
 );
