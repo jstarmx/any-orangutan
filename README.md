@@ -1,2 +1,2 @@
-# any-orangutang
-Which on is your favourite?
+# any-orangutan
+Which one is your favourite?
