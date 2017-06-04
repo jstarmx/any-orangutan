@@ -9,5 +9,4 @@ export const updateImages = data => ({
 
 export const fetchImages = () => dispatch =>
   fetch('http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=flickrcb&tags=orangutan')
-  .then(response => dispatch(updateImages(response.items)))
-  .catch(error => console.error(error)); // eslint-disable-line no-console
+  .then(response => dispatch(updateImages(response.items)));
