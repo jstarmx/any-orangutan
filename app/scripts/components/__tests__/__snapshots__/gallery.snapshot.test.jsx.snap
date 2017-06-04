@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="gallery"
+>
+  <div
+    className="item"
+  >
+    <a
+      href="http://www.flickr.com/photos/thevixen/34702706110/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Make Them Go Away"
+        className="item__image"
+        src="http://farm5.staticflickr.com/4266/34702706110_e722ea7bf8_m.jpg"
+      />
+    </a>
+    <p
+      className="item__title"
+    >
+      Make Them Go Away
+    </p>
+    <p
+      className="item__date"
+    >
+      3rd Jun 2017
+    </p>
+    <button
+      className="item__button"
+    >
+      <img
+        alt="Not currently favourited"
+        className="item__icon"
+        src="heart_empty.svg"
+      />
+      Favourite
+    </button>
+  </div>
+  <div
+    className="item"
+  >
+    <a
+      href="http://www.flickr.com/photos/goonieman70/34925399121/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Monkeying around."
+        className="item__image"
+        src="http://farm5.staticflickr.com/4271/34925399121_1a817f3f1c_m.jpg"
+      />
+    </a>
+    <p
+      className="item__title"
+    >
+      Monkeying around.
+    </p>
+    <p
+      className="item__date"
+    >
+      28th May 2017
+    </p>
+    <button
+      className="item__button"
+    >
+      <img
+        alt="Not currently favourited"
+        className="item__icon"
+        src="heart_empty.svg"
+      />
+      Favourite
+    </button>
+  </div>
+</div>
+`;
