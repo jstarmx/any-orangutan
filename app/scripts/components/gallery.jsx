@@ -9,11 +9,15 @@ class Gallery extends Component {
   }
 
   render() {
+    const { favouriteImage, favourites, items } = this.props;
+
     return (
       <div className="gallery">
-        { this.props.items.map(item => (
+        { items.map(item => (
           <Item
             date={ item.date_taken }
+            favourite={ favourites.includes(item.link) }
+            favouriteImage={ favouriteImage }
             path={ item.media.m }
             link={ item.link }
             title={ item.title }
@@ -26,6 +30,8 @@ class Gallery extends Component {
 }
 
 Gallery.propTypes = {
+  favouriteImage: PropTypes.func.isRequired,
+  favourites: PropTypes.arrayOf(PropTypes.string).isRequired,
   fetchImages: PropTypes.func.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     date_taken: PropTypes.string.isRequired,

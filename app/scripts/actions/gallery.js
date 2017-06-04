@@ -1,6 +1,12 @@
 import fetch from '../helpers/fetch';
 
+export const FAVOURITE_IMAGE = 'FAVOURITE_IMAGE';
 export const IMAGES_RECEIVED = 'IMAGES_RECEIVED';
+
+export const favouriteImage = data => ({
+  data,
+  type: FAVOURITE_IMAGE,
+});
 
 export const updateImages = data => ({
   data,

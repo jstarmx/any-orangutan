@@ -38,6 +38,11 @@
     &:hover {
       background-color: $light;
     }
+
+    &--favourite,
+    &--favourite:hover {
+      background-color: $highlight;
+    }
   }
 
   &__icon {

@@ -8,9 +8,23 @@ jest.mock('../../helpers/fetch', () => () =>
 
 const mockStore = configureMockStore([thunk]);
 
+it('exports an FAVOURITE_IMAGE constant', () =>
+  expect(actions.FAVOURITE_IMAGE).toBe('FAVOURITE_IMAGE')
+);
+
 it('exports an IMAGES_RECEIVED constant', () =>
   expect(actions.IMAGES_RECEIVED).toBe('IMAGES_RECEIVED')
 );
+
+it('exports a favouriteImage action', () => {
+  const data = 'image1';
+  const expectedAction = {
+    data,
+    type: actions.FAVOURITE_IMAGE,
+  };
+
+  expect(actions.favouriteImage(data)).toEqual(expectedAction);
+});
 
 it('exports an updateImages action', () => {
   const data = [];

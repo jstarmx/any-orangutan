@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 
-import { fetchImages } from '../actions/gallery';
+import { favouriteImage, fetchImages } from '../actions/gallery';
 import Gallery from '../components/gallery';
 
-export default connect(state => state, { fetchImages })(Gallery);
+const mapDispatchToProps = { favouriteImage, fetchImages };
+
+export default connect(state => state, mapDispatchToProps)(Gallery);
