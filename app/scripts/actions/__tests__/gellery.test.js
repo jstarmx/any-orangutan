@@ -8,22 +8,36 @@ jest.mock('../../helpers/fetch', () => () =>
 
 const mockStore = configureMockStore([thunk]);
 
-it('exports an FAVOURITE_IMAGE constant', () =>
-  expect(actions.FAVOURITE_IMAGE).toBe('FAVOURITE_IMAGE')
+it('exports an ADD_TO_FAVOURITES constant', () =>
+  expect(actions.ADD_TO_FAVOURITES).toBe('ADD_TO_FAVOURITES')
+);
+
+it('exports an REMOVE_FROM_FAVOURITES constant', () =>
+  expect(actions.REMOVE_FROM_FAVOURITES).toBe('REMOVE_FROM_FAVOURITES')
 );
 
 it('exports an IMAGES_RECEIVED constant', () =>
   expect(actions.IMAGES_RECEIVED).toBe('IMAGES_RECEIVED')
 );
 
-it('exports a favouriteImage action', () => {
+it('exports an addToFavourites action', () => {
   const data = 'image1';
   const expectedAction = {
     data,
-    type: actions.FAVOURITE_IMAGE,
+    type: actions.ADD_TO_FAVOURITES,
   };
 
-  expect(actions.favouriteImage(data)).toEqual(expectedAction);
+  expect(actions.addToFavourites(data)).toEqual(expectedAction);
+});
+
+it('exports a removeFromFavourites action', () => {
+  const data = 'image1';
+  const expectedAction = {
+    data,
+    type: actions.REMOVE_FROM_FAVOURITES,
+  };
+
+  expect(actions.removeFromFavourites(data)).toEqual(expectedAction);
 });
 
 it('exports an updateImages action', () => {

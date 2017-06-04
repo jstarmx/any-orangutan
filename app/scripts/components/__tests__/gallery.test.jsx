@@ -4,8 +4,10 @@ import { mount } from 'enzyme';
 import Gallery from '../gallery';
 import Item from '../item';
 
-const favouriteImage = jest.fn();
+const addToFavourites = jest.fn();
+const removeFromFavourites = jest.fn();
 const fetchImages = jest.fn();
+
 const item1 = {
   date_taken: '2017-06-03T14:44:43-08:00',
   link: 'http://www.flickr.com/photos/thevixen/34702706110/',
@@ -25,10 +27,11 @@ const item2 = {
 
 const component = mount(
   <Gallery
+    addToFavourites={ addToFavourites }
     favourites={ ['http://www.flickr.com/photos/goonieman70/34925399121/'] }
-    favouriteImage={ favouriteImage }
     fetchImages={ fetchImages }
     items={ [item1, item2] }
+    removeFromFavourites={ removeFromFavourites }
   />
 );
 
@@ -38,20 +41,22 @@ it('renders two Item components', () => {
 
 it('passes the correct props to the Item components', () => {
   expect(component.find(Item).first().props()).toEqual({
+    addToFavourites,
     date: item1.date_taken,
     favourite: false,
-    favouriteImage,
     path: item1.media.m,
     link: item1.link,
+    removeFromFavourites,
     title: item1.title,
   });
 
   expect(component.find(Item).last().props()).toEqual({
+    addToFavourites,
     date: item2.date_taken,
     favourite: true,
-    favouriteImage,
     path: item2.media.m,
     link: item2.link,
+    removeFromFavourites,
     title: item2.title,
   });
 });

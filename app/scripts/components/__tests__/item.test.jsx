@@ -3,14 +3,16 @@ import { shallow } from 'enzyme';
 
 import Item from '../item';
 
-const favouriteImage = jest.fn();
+const addToFavourites = jest.fn();
+const removeFromFavourites = jest.fn();
 
 const props = customProps => ({
+  addToFavourites,
   date: '2017-06-03T14:44:43-08:00',
   favourite: false,
-  favouriteImage,
   link: 'http://www.flickr.com/photos/thevixen/34702706110/',
   path: 'http://farm5.staticflickr.com/4266/34702706110_e722ea7bf8_m.jpg',
+  removeFromFavourites,
   title: 'Make Them Go Away',
   ...customProps,
 });
@@ -41,9 +43,16 @@ it('renders an favourited item', () => {
     .toBe('Remove from favourites');
 });
 
-it('calls the "favouriteImage" function with the link when clicking the button', () => {
+it('calls the "addToFavourites" function when not favourited', () => {
   const component = shallow(<Item { ...props() } />);
   component.find('.item__button').simulate('click');
 
-  expect(favouriteImage).toBeCalledWith(props().link);
+  expect(addToFavourites).toBeCalledWith(props().link);
+});
+
+it('calls the "removeFromFavourites" function when already favourited', () => {
+  const component = shallow(<Item { ...props({ favourite: true }) } />);
+  component.find('.item__button').simulate('click');
+
+  expect(removeFromFavourites).toBeCalledWith(props().link);
 });

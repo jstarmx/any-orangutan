@@ -9,17 +9,23 @@ class Gallery extends Component {
   }
 
   render() {
-    const { favouriteImage, favourites, items } = this.props;
+    const {
+      addToFavourites,
+      removeFromFavourites,
+      favourites,
+      items,
+    } = this.props;
 
     return (
       <div className="gallery">
         { items.map(item => (
           <Item
+            addToFavourites={ addToFavourites }
             date={ item.date_taken }
             favourite={ favourites.includes(item.link) }
-            favouriteImage={ favouriteImage }
             path={ item.media.m }
             link={ item.link }
+            removeFromFavourites={ removeFromFavourites }
             title={ item.title }
             key={ item.link }
           />
@@ -30,7 +36,7 @@ class Gallery extends Component {
 }
 
 Gallery.propTypes = {
-  favouriteImage: PropTypes.func.isRequired,
+  addToFavourites: PropTypes.func.isRequired,
   favourites: PropTypes.arrayOf(PropTypes.string).isRequired,
   fetchImages: PropTypes.func.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
@@ -41,6 +47,7 @@ Gallery.propTypes = {
     }).isRequired,
     title: PropTypes.string.isRequired,
   })).isRequired,
+  removeFromFavourites: PropTypes.func.isRequired,
 };
 
 export default Gallery;
