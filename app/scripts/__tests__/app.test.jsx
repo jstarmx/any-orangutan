@@ -15,7 +15,7 @@ jest.mock('redux-thunk', () => 'thunk');
 document.body.innerHTML = '<div class="gallery-container"></div>';
 window.__REDUX_DEVTOOLS_EXTENSION__ = () => 'devtools';
 redux.applyMiddleware = middleware => middleware;
-redux.createStore = jest.fn();
+const createStore = jest.spyOn(redux, 'createStore');
 const store = redux.createStore();
 
 require('../app');
@@ -25,7 +25,7 @@ it('calls the offline-plugin install script', () => {
 });
 
 it('creates a store', () => {
-  expect(redux.createStore).toBeCalledWith(reducer, 'devtools', 'thunk');
+  expect(createStore).toBeCalledWith(reducer, 'devtools', 'thunk');
 });
 
 it('renders the Gallery container', () => {
