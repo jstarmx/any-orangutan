@@ -1,0 +1,15 @@
+CACHE MANIFEST
+#ver:6/5/2017, 5:30:23 PM
+#plugin:4.8.1
+
+CACHE:
+../vendor.js
+../main.js
+../manifest.js
+../app.css
+../heart_full.svg
+../heart_empty.svg
+../
+
+NETWORK:
+*
