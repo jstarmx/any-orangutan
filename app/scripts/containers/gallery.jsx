@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { filter, pick } from 'lodash';
 
+import * as actions from '../actions/gallery';
 import Item from './item';
 
 class Gallery extends Component {
@@ -8,35 +11,36 @@ class Gallery extends Component {
     this.props.fetchImages();
   }
 
-  render() {
-    const {
-      addToFavourites,
-      removeFromFavourites,
-      favourites,
-      items,
-    } = this.props;
+  favouritedItems() {
+    const { favourites, items } = this.props;
+    return filter(items, item => favourites.includes(item.link));
+  }
 
+  items() {
+    const { activeFilter, items } = this.props;
+    return activeFilter === 'all' ? items : this.favouritedItems();
+  }
+
+  render() {
     return (
-      <div className="gallery">
-        { items.map(item => (
+      <section className="gallery">
+        { this.items().map(item => (
           <Item
-            addToFavourites={ addToFavourites }
             date={ item.date_taken }
-            favourite={ favourites.includes(item.link) }
+            favourite={ this.props.favourites.includes(item.link) }
             path={ item.media.m }
             link={ item.link }
-            removeFromFavourites={ removeFromFavourites }
             title={ item.title }
             key={ item.link }
           />
         )) }
-      </div>
+      </section>
     );
   }
 }
 
 Gallery.propTypes = {
-  addToFavourites: PropTypes.func.isRequired,
+  activeFilter: PropTypes.string.isRequired,
   favourites: PropTypes.arrayOf(PropTypes.string).isRequired,
   fetchImages: PropTypes.func.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
@@ -47,7 +51,9 @@ Gallery.propTypes = {
     }).isRequired,
     title: PropTypes.string.isRequired,
   })).isRequired,
-  removeFromFavourites: PropTypes.func.isRequired,
 };
 
-export default Gallery;
+const mapStateToProps = state => ({ ...state.filter, ...state.gallery });
+const mapDispatchToProps = pick(actions, 'fetchImages');
+
+export default connect(mapStateToProps, mapDispatchToProps)(Gallery);

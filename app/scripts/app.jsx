@@ -6,7 +6,8 @@ import thunk from 'redux-thunk';
 import { install } from 'offline-plugin/runtime';
 import persistState from 'redux-localstorage';
 
-import reducer from './reducers/gallery';
+import reducers from './reducers';
+import Filter from './containers/filter';
 import Gallery from './containers/gallery';
 
 // Initialise Redux devtools
@@ -18,7 +19,7 @@ install();
 
 // Set up store
 const store = createStore(
-  reducer,
+  reducers,
   devtools,
   compose(applyMiddleware(thunk), persistState())
 );
@@ -26,7 +27,10 @@ const store = createStore(
 // Render gallery!
 render(
   <Provider store={ store }>
-    <Gallery />
+    <div>
+      <Filter />
+      <Gallery />
+    </div>
   </Provider>,
   document.querySelector('.gallery-container')
 );

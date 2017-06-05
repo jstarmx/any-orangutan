@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import format from 'date-fns/format';
-import { bindAll } from 'lodash';
+import { bindAll, pick } from 'lodash';
+
+import * as actions from '../actions/gallery';
 
 const formattedDate = date => format(new Date(date), 'Do MMM YYYY');
 
@@ -27,8 +30,14 @@ class Item extends Component {
 
     return (
       <div className={ `item ${favourite ? 'item--favourite' : ''}` }>
-        <a href={ link } target="_blank" rel="noopener noreferrer">
+        <a
+          className="item__link"
+          href={ link }
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src={ path } alt={ title } className="item__image" />
+          <div className="item__open">View on Flickr...</div>
         </a>
         <p className="item__title">{ title }</p>
         <p className="item__date">{ formattedDate(date) }</p>
@@ -41,7 +50,7 @@ class Item extends Component {
             alt={ favourite ? 'Remove from favourites' : 'Add to favourites' }
             className="item__icon"
           />
-          { favourite ? 'Favourited!' : 'Favourite' }
+          { favourite ? 'favourited!' : 'favourite' }
         </button>
       </div>
     );
@@ -58,4 +67,10 @@ Item.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default Item;
+const mapDispatchToProps = pick(
+  actions,
+  'addToFavourites',
+  'removeFromFavourites'
+);
+
+export default connect(null, mapDispatchToProps)(Item);
