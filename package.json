@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --open --config './webpack.dev.config.js'",
-    "prod": "rm -rf ./dist && webpack -p --config './webpack.prod.config.js'",
+    "prod": "rm -rf ./docs/* && webpack -p --config './webpack.prod.config.js'",
     "lint": "eslint ./ --ext .js --ext .jsx && stylelint ./app/styles/**/*.scss",
     "test": "yarn lint && jest"
   },
