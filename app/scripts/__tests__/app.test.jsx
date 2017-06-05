@@ -11,10 +11,12 @@ jest.mock('offline-plugin/runtime');
 jest.mock('react-dom');
 jest.mock('redux');
 jest.mock('redux-thunk', () => 'thunk');
+jest.mock('redux-localstorage', () => () => 'persistState');
 
 document.body.innerHTML = '<div class="gallery-container"></div>';
 window.__REDUX_DEVTOOLS_EXTENSION__ = () => 'devtools';
 redux.applyMiddleware = middleware => middleware;
+redux.compose = jest.fn(() => 'compose');
 const createStore = jest.spyOn(redux, 'createStore');
 const store = redux.createStore();
 
@@ -25,7 +27,8 @@ it('calls the offline-plugin install script', () => {
 });
 
 it('creates a store', () => {
-  expect(createStore).toBeCalledWith(reducer, 'devtools', 'thunk');
+  expect(redux.compose).toBeCalledWith('thunk', 'persistState');
+  expect(createStore).toBeCalledWith(reducer, 'devtools', 'compose');
 });
 
 it('renders the Gallery container', () => {

@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { install } from 'offline-plugin/runtime';
+import persistState from 'redux-localstorage';
 
 import reducer from './reducers/gallery';
 import Gallery from './containers/gallery';
@@ -15,9 +16,14 @@ const devtools = window.__REDUX_DEVTOOLS_EXTENSION__ &&
 // Install service worker for offline functionality
 install();
 
-// Render gallery
-const store = createStore(reducer, devtools, applyMiddleware(thunk));
+// Set up store
+const store = createStore(
+  reducer,
+  devtools,
+  compose(applyMiddleware(thunk), persistState())
+);
 
+// Render gallery!
 render(
   <Provider store={ store }>
     <Gallery />
