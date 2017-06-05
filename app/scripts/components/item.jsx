@@ -26,14 +26,14 @@ class Item extends Component {
     const { date, favourite, path, link, title } = this.props;
 
     return (
-      <div className="item">
+      <div className={ `item ${favourite ? 'item--favourite' : ''}` }>
         <a href={ link } target="_blank" rel="noopener noreferrer">
           <img src={ path } alt={ title } className="item__image" />
         </a>
         <p className="item__title">{ title }</p>
         <p className="item__date">{ formattedDate(date) }</p>
         <button
-          className={ `item__button ${favourite ? 'item__button--favourite' : ''}` }
+          className="item__button"
           onClick={ this.toggleFavourite }
         >
           <img

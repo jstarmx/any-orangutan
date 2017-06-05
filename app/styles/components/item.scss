@@ -1,7 +1,8 @@
 .item {
   align-self: center;
   background-color: $white;
-  border-radius: 0.2em;
+  border: 4px solid $dark;
+  border-radius: 0.25em;
   color: $dark;
   justify-self: center;
   margin: 1em;
@@ -38,16 +39,23 @@
     &:hover {
       background-color: $light;
     }
-
-    &--favourite,
-    &--favourite:hover {
-      background-color: $highlight;
-    }
   }
 
   &__icon {
     margin-right: 0.5em;
     vertical-align: top;
     width: 1em;
+  }
+
+  &--favourite {
+    border-color: $highlight;
+    color: $highlight;
+
+    .item {
+      &__button,
+      &__button:hover {
+        background-color: $highlight;
+      }
+    }
   }
 }

@@ -20,8 +20,8 @@ const props = customProps => ({
 it('renders an unfavourited item', () => {
   const component = shallow(<Item { ...props() } />);
 
-  expect(component.find('.item__button').node.props.className)
-    .toBe('item__button ');
+  expect(component.find('.item').node.props.className)
+    .toBe('item ');
   expect(component.find('.item__button').text())
     .toBe('Favourite');
   expect(component.find('.item__icon').node.props.src)
@@ -33,8 +33,8 @@ it('renders an unfavourited item', () => {
 it('renders an favourited item', () => {
   const component = shallow(<Item { ...props({ favourite: true }) } />);
 
-  expect(component.find('.item__button').node.props.className)
-    .toBe('item__button item__button--favourite');
+  expect(component.find('.item').node.props.className)
+    .toBe('item item--favourite');
   expect(component.find('.item__button').text())
     .toBe('Favourited!');
   expect(component.find('.item__icon').node.props.src)
