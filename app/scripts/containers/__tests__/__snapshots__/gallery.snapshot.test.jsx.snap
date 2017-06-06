@@ -1,13 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div
+<section
   className="gallery"
 >
   <div
-    className="item"
+    className="item "
   >
     <a
+      className="item__link"
       href="http://www.flickr.com/photos/thevixen/34702706110/"
       rel="noopener noreferrer"
       target="_blank"
@@ -17,6 +18,11 @@ exports[`renders correctly 1`] = `
         className="item__image"
         src="http://farm5.staticflickr.com/4266/34702706110_e722ea7bf8_m.jpg"
       />
+      <div
+        className="item__open"
+      >
+        View on Flickr...
+      </div>
     </a>
     <p
       className="item__title"
@@ -30,19 +36,21 @@ exports[`renders correctly 1`] = `
     </p>
     <button
       className="item__button"
+      onClick={[Function]}
     >
       <img
-        alt="Not currently favourited"
+        alt="Add to favourites"
         className="item__icon"
         src="heart_empty.svg"
       />
-      Favourite
+      favourite
     </button>
   </div>
   <div
-    className="item"
+    className="item "
   >
     <a
+      className="item__link"
       href="http://www.flickr.com/photos/goonieman70/34925399121/"
       rel="noopener noreferrer"
       target="_blank"
@@ -52,6 +60,11 @@ exports[`renders correctly 1`] = `
         className="item__image"
         src="http://farm5.staticflickr.com/4271/34925399121_1a817f3f1c_m.jpg"
       />
+      <div
+        className="item__open"
+      >
+        View on Flickr...
+      </div>
     </a>
     <p
       className="item__title"
@@ -65,14 +78,15 @@ exports[`renders correctly 1`] = `
     </p>
     <button
       className="item__button"
+      onClick={[Function]}
     >
       <img
-        alt="Not currently favourited"
+        alt="Add to favourites"
         className="item__icon"
         src="heart_empty.svg"
       />
-      Favourite
+      favourite
     </button>
   </div>
-</div>
+</section>
 `;

@@ -3,16 +3,15 @@ import { render } from 'react-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import { install } from 'offline-plugin/runtime';
 import persistState from 'redux-localstorage';
+import { install } from 'offline-plugin/runtime';
 
 import reducers from './reducers';
-import Filter from './containers/filter';
-import Gallery from './containers/gallery';
+import ConnectedFilter from './containers/filter';
+import ConnectedGallery from './containers/gallery';
 
 // Initialise Redux devtools
-const devtools = window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Install service worker for offline functionality
 install();
@@ -20,17 +19,18 @@ install();
 // Set up store
 const store = createStore(
   reducers,
-  devtools,
-  compose(applyMiddleware(thunk), persistState())
+  composeEnhancers(applyMiddleware(thunk), persistState())
 );
 
 // Render gallery!
 render(
   <Provider store={ store }>
     <div>
-      <Filter />
-      <Gallery />
+      <ConnectedFilter />
+      <ConnectedGallery />
     </div>
   </Provider>,
   document.querySelector('.gallery-container')
 );
+
+export default store;

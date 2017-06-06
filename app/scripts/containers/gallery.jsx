@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { filter, pick } from 'lodash';
 
 import * as actions from '../actions/gallery';
-import Item from './item';
+import ConnectedItem from './item';
 
-class Gallery extends Component {
+export class Gallery extends Component {
   componentDidMount() {
     this.props.fetchImages();
   }
@@ -25,7 +25,7 @@ class Gallery extends Component {
     return (
       <section className="gallery">
         { this.items().map(item => (
-          <Item
+          <ConnectedItem
             date={ item.date_taken }
             favourite={ this.props.favourites.includes(item.link) }
             path={ item.media.m }

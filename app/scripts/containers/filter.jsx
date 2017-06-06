@@ -6,7 +6,7 @@ import { pick } from 'lodash';
 import * as actions from '../actions/filter';
 import Button from '../components/filter_button';
 
-const Filter = ({ activeFilter, filter }) => (
+export const Filter = ({ activeFilter, filter }) => (
   <div>
     <section className="filter">
       filter by:

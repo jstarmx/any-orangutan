@@ -8,7 +8,7 @@ import * as actions from '../actions/gallery';
 
 const formattedDate = date => format(new Date(date), 'Do MMM YYYY');
 
-class Item extends Component {
+export class Item extends Component {
   constructor() {
     super();
     bindAll(this, 'toggleFavourite');
