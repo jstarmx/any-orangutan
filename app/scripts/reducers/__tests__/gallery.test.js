@@ -5,6 +5,7 @@ it('should return the initial state', () => {
   const expectedState = {
     favourites: [],
     items: [],
+    loading: false,
   };
 
   expect(gallery(undefined, {})).toEqual(expectedState);
@@ -18,6 +19,7 @@ it('should handle ADD_TO_FAVOURITES', () => {
   const expectedState = {
     favourites: ['image1'],
     items: [],
+    loading: false,
   };
 
   expect(gallery(undefined, action)).toEqual(expectedState);
@@ -27,6 +29,7 @@ it('should handle REMOVE_FROM_FAVOURITES', () => {
   const initialState = {
     favourites: ['image1'],
     items: [],
+    loading: false,
   };
   const action = {
     data: 'image1',
@@ -35,9 +38,23 @@ it('should handle REMOVE_FROM_FAVOURITES', () => {
   const expectedState = {
     favourites: [],
     items: [],
+    loading: false,
   };
 
   expect(gallery(initialState, action)).toEqual(expectedState);
+});
+
+it('should handle FETCHING_IMAGES', () => {
+  const action = {
+    type: actions.FETCHING_IMAGES,
+  };
+  const expectedState = {
+    favourites: [],
+    items: [],
+    loading: true,
+  };
+
+  expect(gallery(undefined, action)).toEqual(expectedState);
 });
 
 it('should handle IMAGES_RECEIVED', () => {
@@ -48,6 +65,7 @@ it('should handle IMAGES_RECEIVED', () => {
   const expectedState = {
     favourites: [],
     items: ['image1', 'image2'],
+    loading: false,
   };
 
   expect(gallery(undefined, action)).toEqual(expectedState);

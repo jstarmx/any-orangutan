@@ -16,6 +16,10 @@ it('exports an REMOVE_FROM_FAVOURITES constant', () =>
   expect(actions.REMOVE_FROM_FAVOURITES).toBe('REMOVE_FROM_FAVOURITES')
 );
 
+it('exports an FETCHING_IMAGES constant', () =>
+  expect(actions.FETCHING_IMAGES).toBe('FETCHING_IMAGES')
+);
+
 it('exports an IMAGES_RECEIVED constant', () =>
   expect(actions.IMAGES_RECEIVED).toBe('IMAGES_RECEIVED')
 );
@@ -52,10 +56,15 @@ it('exports an updateImages action', () => {
 
 it('exports a fetchImages action, which calls updateImages with data', () => {
   const store = mockStore({ items: [] });
-  const expectedActions = [{
-    data: ['image1', 'image2'],
-    type: actions.IMAGES_RECEIVED,
-  }];
+  const expectedActions = [
+    {
+      type: actions.FETCHING_IMAGES,
+    },
+    {
+      data: ['image1', 'image2'],
+      type: actions.IMAGES_RECEIVED,
+    },
+  ];
 
   store.dispatch(actions.fetchImages()).then(() =>
     expect(store.getActions()).toEqual(expectedActions)

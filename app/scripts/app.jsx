@@ -7,6 +7,7 @@ import persistState from 'redux-localstorage';
 import { install } from 'offline-plugin/runtime';
 
 import reducers from './reducers';
+import ConnectedNotice from './containers/notice';
 import ConnectedFilter from './containers/filter';
 import ConnectedGallery from './containers/gallery';
 
@@ -26,6 +27,7 @@ const store = createStore(
 render(
   <Provider store={ store }>
     <div>
+      <ConnectedNotice />
       <ConnectedFilter />
       <ConnectedGallery />
     </div>

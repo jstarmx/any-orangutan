@@ -3,12 +3,15 @@ import { without } from 'lodash';
 import {
   ADD_TO_FAVOURITES,
   REMOVE_FROM_FAVOURITES,
+  FETCHING_IMAGES,
   IMAGES_RECEIVED,
 } from '../actions/gallery';
 
 const initialState = {
+  error: '',
   favourites: [],
   items: [],
+  info: '',
 };
 
 export default (state = initialState, { data, type }) => {
@@ -25,10 +28,17 @@ export default (state = initialState, { data, type }) => {
         favourites: without(state.favourites, data),
       };
 
+    case FETCHING_IMAGES:
+      return {
+        ...state,
+        info: 'loading orangutans...',
+      };
+
     case IMAGES_RECEIVED:
       return {
         ...state,
         items: data,
+        info: '',
       };
 
     default:

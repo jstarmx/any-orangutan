@@ -2,6 +2,7 @@ import fetch from '../helpers/fetch';
 
 export const ADD_TO_FAVOURITES = 'ADD_TO_FAVOURITES';
 export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES';
+export const FETCHING_IMAGES = 'FETCHING_IMAGES';
 export const IMAGES_RECEIVED = 'IMAGES_RECEIVED';
 
 export const addToFavourites = data => ({
@@ -19,6 +20,9 @@ export const updateImages = data => ({
   type: IMAGES_RECEIVED,
 });
 
-export const fetchImages = () => dispatch =>
-  fetch('https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=flickrcb&tags=orangutan')
-  .then(response => dispatch(updateImages(response.items)));
+export const fetchImages = () => (dispatch) => {
+  dispatch({ type: FETCHING_IMAGES });
+
+  return fetch('https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=flickrcb&tags=orangutan')
+    .then(response => dispatch(updateImages(response.items)));
+};
