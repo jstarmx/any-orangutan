@@ -11,6 +11,7 @@ import {
 const initialState = {
   error: '',
   favourites: [],
+  icon: '',
   info: '',
   items: [],
 };
@@ -32,6 +33,7 @@ export default (state = initialState, { data, type }) => {
     case FETCHING_IMAGES:
       return {
         ...state,
+        icon: 'loading',
         info: 'loading orangutans...',
       };
 
@@ -39,6 +41,7 @@ export default (state = initialState, { data, type }) => {
       return {
         ...state,
         error: '',
+        icon: '',
         info: '',
         items: data,
       };
@@ -46,6 +49,7 @@ export default (state = initialState, { data, type }) => {
     case ERROR:
       return {
         ...state,
+        icon: 'error',
         error: 'an error occurred connecting to flickr, please check your internet connection.',
       };
 

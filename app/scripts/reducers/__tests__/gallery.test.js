@@ -5,6 +5,7 @@ it('should return the initial state', () => {
   const expectedState = {
     error: '',
     favourites: [],
+    icon: '',
     info: '',
     items: [],
   };
@@ -20,6 +21,7 @@ it('should handle ADD_TO_FAVOURITES', () => {
   const expectedState = {
     error: '',
     favourites: ['image1'],
+    icon: '',
     info: '',
     items: [],
   };
@@ -31,6 +33,7 @@ it('should handle REMOVE_FROM_FAVOURITES', () => {
   const initialState = {
     error: '',
     favourites: ['image1'],
+    icon: '',
     info: '',
     items: [],
   };
@@ -41,6 +44,7 @@ it('should handle REMOVE_FROM_FAVOURITES', () => {
   const expectedState = {
     error: '',
     favourites: [],
+    icon: '',
     info: '',
     items: [],
   };
@@ -55,6 +59,7 @@ it('should handle FETCHING_IMAGES', () => {
   const expectedState = {
     error: '',
     favourites: [],
+    icon: 'loading',
     info: 'loading orangutans...',
     items: [],
   };
@@ -71,6 +76,7 @@ it('should handle IMAGES_RECEIVED', () => {
     error: '',
     favourites: [],
     info: '',
+    icon: '',
     items: ['image1', 'image2'],
   };
 
@@ -84,6 +90,7 @@ it('should handle ERROR', () => {
   const expectedState = {
     error: 'an error occurred connecting to flickr, please check your internet connection.',
     favourites: [],
+    icon: 'error',
     info: '',
     items: [],
   };

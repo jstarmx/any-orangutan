@@ -1,6 +1,9 @@
 .notice {
+  align-items: center;
   background-color: $dark;
   color: $white;
+  display: flex;
+  justify-content: center;
   text-align: center;
 
   &--info,
@@ -11,5 +14,15 @@
 
   &--error {
     background-color: $error;
+  }
+
+  &__icon {
+    height: 2em;
+    margin-right: 1em;
+    width: 2em;
+
+    &--loading {
+      @include spin;
+    }
   }
 }
