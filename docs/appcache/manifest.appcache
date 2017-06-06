@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:6/5/2017, 11:46:35 PM
+#ver:6/6/2017, 10:07:22 PM
 #plugin:4.8.1
 
 CACHE:
@@ -7,10 +7,10 @@ CACHE:
 ../main.js
 ../manifest.js
 ../app.css
-../heart_empty.svg
 ../heart_full.svg
-../favicon.ico
+../heart_empty.svg
 ../ao_logo.svg
+../favicon.ico
 ../
 
 NETWORK:
