@@ -3,9 +3,10 @@ import * as actions from '../../actions/gallery';
 
 it('should return the initial state', () => {
   const expectedState = {
+    error: '',
     favourites: [],
+    info: '',
     items: [],
-    loading: false,
   };
 
   expect(gallery(undefined, {})).toEqual(expectedState);
@@ -17,9 +18,10 @@ it('should handle ADD_TO_FAVOURITES', () => {
     type: actions.ADD_TO_FAVOURITES,
   };
   const expectedState = {
+    error: '',
     favourites: ['image1'],
+    info: '',
     items: [],
-    loading: false,
   };
 
   expect(gallery(undefined, action)).toEqual(expectedState);
@@ -27,18 +29,20 @@ it('should handle ADD_TO_FAVOURITES', () => {
 
 it('should handle REMOVE_FROM_FAVOURITES', () => {
   const initialState = {
+    error: '',
     favourites: ['image1'],
+    info: '',
     items: [],
-    loading: false,
   };
   const action = {
     data: 'image1',
     type: actions.REMOVE_FROM_FAVOURITES,
   };
   const expectedState = {
+    error: '',
     favourites: [],
+    info: '',
     items: [],
-    loading: false,
   };
 
   expect(gallery(initialState, action)).toEqual(expectedState);
@@ -49,9 +53,10 @@ it('should handle FETCHING_IMAGES', () => {
     type: actions.FETCHING_IMAGES,
   };
   const expectedState = {
+    error: '',
     favourites: [],
+    info: 'loading orangutans...',
     items: [],
-    loading: true,
   };
 
   expect(gallery(undefined, action)).toEqual(expectedState);
@@ -63,9 +68,24 @@ it('should handle IMAGES_RECEIVED', () => {
     type: actions.IMAGES_RECEIVED,
   };
   const expectedState = {
+    error: '',
     favourites: [],
+    info: '',
     items: ['image1', 'image2'],
-    loading: false,
+  };
+
+  expect(gallery(undefined, action)).toEqual(expectedState);
+});
+
+it('should handle ERROR', () => {
+  const action = {
+    type: actions.ERROR,
+  };
+  const expectedState = {
+    error: 'an error occurred connecting to flickr, please check your internet connection.',
+    favourites: [],
+    info: '',
+    items: [],
   };
 
   expect(gallery(undefined, action)).toEqual(expectedState);

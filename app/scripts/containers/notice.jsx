@@ -6,9 +6,9 @@ import { pick } from 'lodash';
 import classList from '../helpers/class_list';
 
 export const Notice = ({ error, info }) => (
-  <div className={ classList('notice', { error, info }) }>
+  <section className={ classList('notice', { error, info }) }>
     { error || info }
-  </div>
+  </section>
 );
 
 Notice.defaultProps = {

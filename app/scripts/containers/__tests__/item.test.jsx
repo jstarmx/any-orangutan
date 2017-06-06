@@ -1,12 +1,11 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { shallow } from 'enzyme';
 
 import ConnectedItem, { Item } from '../item';
 
-const store = configureMockStore([thunk])();
+const store = configureMockStore()();
 
 describe('ConnectedItem', () => {
   const connectedComponent = shallow(

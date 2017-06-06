@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
+import ConnectedNotice from '../containers/notice';
 import ConnectedFilter from '../containers/filter';
 import ConnectedGallery from '../containers/gallery';
 
@@ -23,6 +24,7 @@ it('renders the Gallery container', () =>
   expect(render).toBeCalledWith(
     <Provider store={ store }>
       <div>
+        <ConnectedNotice />
         <ConnectedFilter />
         <ConnectedGallery />
       </div>

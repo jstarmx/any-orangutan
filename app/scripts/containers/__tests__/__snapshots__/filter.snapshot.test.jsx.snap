@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <section
+    className="filter"
+  >
+    filter by:
+    <button
+      className="filter__button filter__button--active"
+      onClick={[Function]}
+    >
+      all
+    </button>
+    <button
+      className="filter__button filter__button--highlight"
+      onClick={[Function]}
+    >
+      favourites
+    </button>
+  </section>
+</div>
+`;

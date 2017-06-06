@@ -5,13 +5,14 @@ import {
   REMOVE_FROM_FAVOURITES,
   FETCHING_IMAGES,
   IMAGES_RECEIVED,
+  ERROR,
 } from '../actions/gallery';
 
 const initialState = {
   error: '',
   favourites: [],
-  items: [],
   info: '',
+  items: [],
 };
 
 export default (state = initialState, { data, type }) => {
@@ -37,8 +38,15 @@ export default (state = initialState, { data, type }) => {
     case IMAGES_RECEIVED:
       return {
         ...state,
-        items: data,
+        error: '',
         info: '',
+        items: data,
+      };
+
+    case ERROR:
+      return {
+        ...state,
+        error: 'an error occurred connecting to flickr, please check your internet connection.',
       };
 
     default:
