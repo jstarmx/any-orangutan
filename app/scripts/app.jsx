@@ -8,7 +8,7 @@ import { install } from 'offline-plugin/runtime';
 
 import reducers from './reducers';
 import ConnectedNotice from './containers/notice';
-import ConnectedFilter from './containers/filter';
+import Filter from './components/filter';
 import ConnectedGallery from './containers/gallery';
 
 // Initialise Redux devtools
@@ -28,7 +28,7 @@ render(
   <Provider store={ store }>
     <div>
       <ConnectedNotice />
-      <ConnectedFilter />
+      <Filter />
       <ConnectedGallery />
     </div>
   </Provider>,

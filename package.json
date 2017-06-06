@@ -10,6 +10,16 @@
     "lint": "eslint ./ --ext .js --ext .jsx && stylelint ./app/styles/**/*.scss",
     "test": "yarn lint && jest"
   },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/docs/**",
+      "!**/__coverage__/**",
+      "!**.config.js"
+    ],
+    "coverageDirectory": "./__coverage__"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.24.1",

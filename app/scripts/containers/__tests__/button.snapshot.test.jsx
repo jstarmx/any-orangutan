@@ -1,17 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Button from '../filter_button';
-
-const props = {
-  active: false,
-  label: 'All',
-  onClick: () => {},
-};
+import { Button } from '../button';
 
 it('renders correctly', () => {
   const tree = renderer.create(
-    <Button { ...props } />
+    <Button activeFilter="all" label="favourite" filter={ () => {} } />
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

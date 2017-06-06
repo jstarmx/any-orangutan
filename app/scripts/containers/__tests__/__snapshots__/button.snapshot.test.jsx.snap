@@ -5,6 +5,6 @@ exports[`renders correctly 1`] = `
   className="filter__button"
   onClick={[Function]}
 >
-  All
+  favourite
 </button>
 `;

@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import ConnectedNotice from '../containers/notice';
-import ConnectedFilter from '../containers/filter';
+import Filter from '../components/filter';
 import ConnectedGallery from '../containers/gallery';
 
 require('mock-local-storage');
@@ -25,7 +25,7 @@ it('renders the Gallery container', () =>
     <Provider store={ store }>
       <div>
         <ConnectedNotice />
-        <ConnectedFilter />
+        <Filter />
         <ConnectedGallery />
       </div>
     </Provider>,
