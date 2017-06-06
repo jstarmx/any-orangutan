@@ -1,7 +1,7 @@
-export default (url) => {
-  global.flickrcb = data => data;
+global.flickrcb = data => data;
+export const script = document.createElement('script');
 
-  const script = document.createElement('script');
+export default (url) => {
   script.src = url;
   document.body.appendChild(script);
 
