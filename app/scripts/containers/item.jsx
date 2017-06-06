@@ -42,8 +42,10 @@ export class Item extends Component {
         <p className="item__title">{ title }</p>
         <p className="item__date">{ formattedDate(date) }</p>
         <button
+          type="button"
           className="item__button"
           onClick={ this.toggleFavourite }
+          aria-pressed={ !!favourite }
         >
           <img
             src={ favourite ? 'heart_full.svg' : 'heart_empty.svg' }

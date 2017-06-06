@@ -4,6 +4,7 @@ exports[`renders correctly 1`] = `
 <button
   className="filter__button"
   onClick={[Function]}
+  type="button"
 >
   favourite
 </button>

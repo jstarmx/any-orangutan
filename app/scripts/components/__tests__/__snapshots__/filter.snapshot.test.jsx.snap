@@ -9,12 +9,14 @@ exports[`renders correctly 1`] = `
     <button
       className="filter__button filter__button--active"
       onClick={[Function]}
+      type="button"
     >
       all
     </button>
     <button
       className="filter__button filter__button--highlight"
       onClick={[Function]}
+      type="button"
     >
       favourites
     </button>

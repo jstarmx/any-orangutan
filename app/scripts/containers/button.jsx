@@ -21,6 +21,7 @@ export class Button extends Component {
 
     return (
       <button
+        type="button"
         className={ classList('filter__button', {
           active: activeFilter === label,
           highlight,

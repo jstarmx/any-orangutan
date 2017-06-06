@@ -32,8 +32,10 @@ exports[`renders correctly 1`] = `
     3rd Jun 2017
   </p>
   <button
+    aria-pressed={false}
     className="item__button"
     onClick={[Function]}
+    type="button"
   >
     <img
       alt="Add to favourites"

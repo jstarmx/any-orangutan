@@ -35,8 +35,10 @@ exports[`renders correctly 1`] = `
       3rd Jun 2017
     </p>
     <button
+      aria-pressed={false}
       className="item__button"
       onClick={[Function]}
+      type="button"
     >
       <img
         alt="Add to favourites"
@@ -77,8 +79,10 @@ exports[`renders correctly 1`] = `
       28th May 2017
     </p>
     <button
+      aria-pressed={false}
       className="item__button"
       onClick={[Function]}
+      type="button"
     >
       <img
         alt="Add to favourites"
