@@ -1,4 +1,4 @@
-# any orangutan!
+# any orangutan! [![Build Status](https://travis-ci.org/jstarmx/any-orangutan.svg?branch=master)](https://travis-ci.org/jstarmx/any-orangutan)
 
 ## Design choices
 I've been using React a lot recently, both at home and at work, and I really like it. I feel it makes rendering complex components using data very intuitive and elegant. I've also been getting used to using Redux and it has similar appeal, an elegant way to hold and update an application's state. So upon reading the brief it made a lot of sense to use these technologies.
