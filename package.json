@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --open --config './webpack.dev.config.js'",
     "prod": "rm -rf ./docs/* && webpack -p --config './webpack.prod.config.js'",
     "lint": "eslint ./ --ext .js --ext .jsx && stylelint ./app/styles/**/*.scss",
-    "test": "yarn lint && jest"
+    "test": "yarn lint && jest --coverage && cat ./__coverage__/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "jest": {
     "collectCoverage": true,
@@ -30,6 +30,7 @@
     "babel-preset-env": "^1.5.1",
     "babel-preset-react": "^6.24.1",
     "copy-webpack-plugin": "^4.0.1",
+    "coveralls": "^2.13.1",
     "css-loader": "^0.28.4",
     "date-fns": "^1.28.5",
     "enzyme": "^2.8.2",
