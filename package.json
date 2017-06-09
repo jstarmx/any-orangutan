@@ -1,7 +1,7 @@
 {
-  "name": "ao",
+  "name": "gallery",
   "version": "1.0.0",
-  "description": "AO Code Test",
+  "description": "A React gallery that renders a Flickr feed, with the ability to favourite images and filter by all/favourites.",
   "author": "James Starkie",
   "license": "MIT",
   "scripts": {
